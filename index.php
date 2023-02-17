@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
     <style>
       h1{
         color: red;
@@ -32,6 +32,8 @@
       </div>
     </nav>
 
+
+
     <div class="hero">
       <div class="container">
         <!-- <h1>First Year Student at QMUL</h1> -->
@@ -39,22 +41,25 @@
       </div>
     </div>
     
+    <?php if (isset($_REQUEST['info'])){ ?>
+  
+        <?php if (isset($_REQUEST['info'])=="added"){ ?>
+        <div>
+          post has been added successfully.
+        </div>
+        <?php } ?>
+    <?php } ?>
+
+    <?php foreach($query as $q) {?>
 
     <section id="hobbies">
       <section class="container content">
-        <h3>Hobbies</h3>
-        <ul>
-          <p>I enjoy the following activities:</p>
-          <li>Reading</li>
-          <li>Running</li>
-          <li>Cycling</li>
-          <li>Yoga</li>
-          <li>Coding</li>
-          <li>Listening to Music</li>
-          <li>Watching shows on Netflix and Youtube</li>
-        </ul>
+        <h3><?php echo $q['title'];?></h3>
+          <p><?php echo $q['content'];?></p>
       </section>
     </section>
+
+    <?php } ?>
 
    <br>
 
